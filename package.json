@@ -1,0 +1,13 @@
+{
+  "name": "sort-js",
+  "version": "0.0.0",
+  "description": "sortJS",
+  "main": "app.js",
+  "author": {
+    "name": "lfern"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "easy-dependency-loader": "0.0.7"
+  }
+}
