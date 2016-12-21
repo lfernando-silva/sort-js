@@ -1,25 +1,25 @@
-﻿var aux = []
+﻿const aux = []
 
 module.exports = {
-    sort: function (list) {
+    sort: list => {
         sort(list, 0, list.length - 1)
         return list
     }
 }
 
-function sort(list, start, length) {
-    if (length <= start) return true
-    var pivot = start + (length - start) / 2
+const sort = (list, start, length) => {
+    if (length <= start) return null
+    let pivot = start + (length - start) / 2
     sort(list, start, pivot)
     sort(list, pivot + 1, length)
     merge(list, start, pivot, length)
 }
 
-function merge(list, start, pivot, length) {
-    var i = start
-    var j = pivot + 1
-    for (var k = start; k <= length; k++) aux[k] = list[k]
-    for (var k = start; k <= length; k++)
+const merge = (list, start, pivot, length) => {
+    let i = start
+    let j = pivot + 1
+    for (let k = start; k <= length; k++) aux[k] = list[k]
+    for (let k = start; k <= length; k++)
         if (i > pivot) list[k] = aux[j++]
         else if (j > length) list[k] = aux[i++]
         else if (aux[j] < aux[i]) list[k] = aux[j++]

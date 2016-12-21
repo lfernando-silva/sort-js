@@ -1,24 +1,24 @@
-﻿var EDL = require('easy-dependency-loader')
-var Order = EDL.load('Order')
+﻿const EDL = require('easy-dependency-loader')
+const Order = EDL.load('Order')
 
 module.exports = {
-    sort: function (list) {
+    sort: (list) => {
         sort(list, 0, list.length - 1)
         return list
     }
 }
 
-function sort(list, start, length) {
-    if (length <= start) return true
-    var j = partition(list, start, length)
+const sort = (list, start, length) => {
+    if (length <= start) return null
+    let j = partition(list, start, length)
     sort(list, start, j - 1)
     sort(list, j + 1, length)
 }
 
-function partition(list, start, length) {
-    var i = start
-    var j = length + 1
-    var pivot = list[start]
+const partition = (list, start, length) => {
+    let i = start
+    let j = length + 1
+    let pivot = list[start]
     while (true) {
         while (list[++i] < pivot) if (i == length) break
         while (pivot < list[--j]) if (j == start) break
